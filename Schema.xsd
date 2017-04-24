@@ -1,0 +1,239 @@
+<!-- Odkaz na github: https://github.com/HanusW/VLCMediaPlayer -->
+
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="VLCMediaPlayer_konfigurace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="rozhrani-nas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nastaveni" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="om-jazyk" name="jazyk" minOccurs="0"/>
+                    <xs:element type="xs:string" name="vzhled" minOccurs="0"/>
+                    <xs:element type="jednanula" name="fullscreen-ovladani" minOccurs="0"/>
+                    <xs:element type="jednanula" name="minimalni-rozhrani" minOccurs="0"/>
+                    <xs:element type="jednanula" name="velikost-roz-video" minOccurs="0"/>
+                    <xs:element type="jednanula" name="ikona-oznpanel" minOccurs="0"/>
+                    <xs:element type="jednanula" name="pozastavit-minimalizace" minOccurs="0"/>
+                    <xs:element type="om-media-oz" name="zmena-media-oznameni" minOccurs="0"/>
+                    <xs:element type="jednanula" name="pouze-jedna-instance" minOccurs="0"/>
+                    <xs:element type="jednanula" name="pouze-jedna-instance-pruzkumnik" minOccurs="0"/>
+                    <xs:element type="jednanula" name="zobrazit-strom" minOccurs="0"/>
+                    <xs:element type="jednanula" name="pozastavit-posledni-snimek" minOccurs="0"/>
+                    <xs:element name="upozorneni-aktulizace" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:integer">
+                            <xs:attribute type="jednanula" name="aktzap"/>
+                            <xs:attribute type="om-formakt" name="aktform"/> 
+                            </xs:extension>                         
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="jednanula" name="ulozit-nedavno-prehrane" minOccurs="0"/>
+                    <xs:element type="jednanula" name="pokracovat-v-prehravani" minOccurs="0"/>
+                    <xs:element type="jednanula" name="povolit-metadata" minOccurs="0"/>
+                    <xs:element type="xs:string" name="asociace" minOccurs="0"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="rkategorie" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="zvuk-nas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="jednanula" name="zvuk"/>
+              <xs:element type="xs:string" name="vystupni-modul-zvuk"/>
+              <xs:element name="nastaveni" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="vzdy-hlasitost" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="om-hlasitost">
+                            <xs:attribute type="jednanula" name="hzap"/>
+                            <xs:attribute type="om-jednotky-zvuk" name="hform"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="jednanula" name="casove-roztazeni-zvuku" minOccurs="0"/>
+                    <xs:element name="normalizace-hlasitosti" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:integer">
+                            <xs:attribute type="jednanula" name="hnorm"/>
+                            <xs:attribute type="om-jednotky-zvuk" name="hnormform"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="jednanula" name="prostorovy-efekt-sluchatek" minOccurs="0"/>
+                    <xs:element type="om-jazyk" name="uprednostnovany-jazyk-z" minOccurs="0"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="zkategorie" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="video-nas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="jednanula" name="video"/>
+              <xs:element name="nastaveni" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="jednanula" name="cela-obrazovka" minOccurs="0"/>
+                    <xs:element type="jednanula" name="hw-akcelerace" minOccurs="0"/>
+                    <xs:element type="jednanula" name="vzdy-navrchu" minOccurs="0"/>
+                    <xs:element type="om-modul-v" name="vystupni-modul-video" minOccurs="0"/>
+                    <xs:element name="klavesova-zkratka" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="jednanula" name="szap"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="adresar-snimku" minOccurs="0"/>
+                    <xs:element type="xs:string" name="predpona-souboru" minOccurs="0"/>
+                    <xs:element type="om-format-snimku" name="format" minOccurs="0"/>
+                    <xs:element type="jednanula" name="vice-monitoru" minOccurs="0"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="vkategorie" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="titulky-nas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="jednanula" name="titulky"/>
+              <xs:element type="jednanula" name="OSD"/>
+              <xs:element name="zobrazovat-nazev-media-OSD">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="om-nazevm">
+                      <xs:attribute type="jednanula" name="nazevzobr"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="nastaveni" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="om-jazyk" name="uprednostnovany-jazyk-t" minOccurs="0"/>
+                    <xs:element type="xs:string" name="font-pisma" minOccurs="0"/>
+                    <xs:element type="om-vel-pis" name="velikost-pisma" minOccurs="0"/>
+                    <xs:element type="om-sir-obr" name="sirka-obrysu" minOccurs="0"/>
+                    <xs:element type="jednanula" name="stin" minOccurs="0"/>
+                    <xs:element type="om-barvy" name="barva-textu" minOccurs="0"/>
+                    <xs:element type="om-barvy" name="barva-obrysu" minOccurs="0"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="tkategorie" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Nastavení omezení -->
+  <xs:simpleType name="om-jazyk"> <!-- Omezení nastavení jazyku -->
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Český"/>
+      <xs:enumeration value="Anglický"/>
+      <xs:enumeration value="Německý"/>
+      <xs:enumeration value="Francouzský"/>
+      <xs:enumeration value="Ruský"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="jednanula"> <!-- Omezení vypnout/zapnout -->
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="om-media-oz"> <!-- Omezení oznámení v okénku -->
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Nikdy"/>
+      <xs:enumeration value="Minimalizace"/>
+      <xs:enumeration value="Vždy"/>
+    </xs:restriction>
+  </xs:simpleType> 
+  <xs:simpleType name="om-formakt"> <!-- Omezení nastavení formátu aktulizace -->
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dny"/>
+      <xs:enumeration value="měsíce"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="om-hlasitost"> <!-- Omezení nastavení hlasitosti -->
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="200"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="om-jednotky-zvuk"> <!-- Omezení nastavení jednotek zvuku -->
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="procenta"/>
+      <xs:enumeration value="decibely"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="om-modul-v"> <!-- Omezení nastavení modulu pro přehrávání videa -->
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Automaticky"/>
+      <xs:enumeration value="DirectX"/>
+      <xs:enumeration value="Direct3D"/>
+      <xs:enumeration value="OpenGL"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="om-format-snimku"> <!-- Omezení nastavení formátu screenshotu -->
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="png"/>
+      <xs:enumeration value="jpg"/>
+      <xs:enumeration value="gif"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="om-nazevm"> <!-- Omezení nastavení pozice zobrazeného názvu média -->
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Dole"/>
+      <xs:enumeration value="Nahoře"/>
+      <xs:enumeration value="Uprostřed"/>
+      <xs:enumeration value="Vlevo"/>
+      <xs:enumeration value="Vpravo"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="om-barvy"> <!-- Omezení nastavení barev -->
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Černá"/>
+      <xs:enumeration value="Bílá"/>
+      <xs:enumeration value="Zelená"/>
+      <xs:enumeration value="Žlutá"/>
+      <xs:enumeration value="Modrá"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="om-vel-pis"> <!-- Omezení nastavení velikostí písma -->
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normální"/>
+      <xs:enumeration value="Větší"/>
+      <xs:enumeration value="Menší"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="om-sir-obr"> <!-- Omezení nastavení šírky obrysu písma -->
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normální"/>
+      <xs:enumeration value="Tlustší"/>
+      <xs:enumeration value="Tenčí"/>
+      <xs:enumeration value="Bez obrysu"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

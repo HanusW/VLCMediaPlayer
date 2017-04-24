@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Odkaz na github: https://github.com/HanusW/VLCMediaPlayer --> 
+  <?xml-stylesheet type="text/xsl" href="Transformace.xsl"?>
+<VLCMediaPlayer_konfigurace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Schema.xsd">
+
+<!-- Nastavení rozhraní -->
+<rozhrani-nas>
+	<nastaveni rkategorie="styl">	
+		<jazyk>Český</jazyk>
+		<vzhled>Základní</vzhled>
+		<fullscreen-ovladani>1</fullscreen-ovladani>
+		<minimalni-rozhrani>0</minimalni-rozhrani>
+		<velikost-roz-video>1</velikost-roz-video>
+		<ikona-oznpanel>1</ikona-oznpanel>
+		<pozastavit-minimalizace>0</pozastavit-minimalizace>
+		<zmena-media-oznameni>Minimalizace</zmena-media-oznameni>
+	</nastaveni>
+	<nastaveni rkategorie="seznam-stop">
+		<pouze-jedna-instance>0</pouze-jedna-instance>
+		<pouze-jedna-instance-pruzkumnik>1</pouze-jedna-instance-pruzkumnik>
+		<zobrazit-strom>0</zobrazit-strom>
+		<pozastavit-posledni-snimek>0</pozastavit-posledni-snimek>
+	</nastaveni>
+	<nastaveni rkategorie="síť">
+		<upozorneni-aktulizace aktzap="1" aktform="dny">14</upozorneni-aktulizace>
+		<ulozit-nedavno-prehrane>1</ulozit-nedavno-prehrane>
+		<pokracovat-v-prehravani>1</pokracovat-v-prehravani>
+		<povolit-metadata>0</povolit-metadata>
+	</nastaveni>
+	<nastaveni rkategorie="přípony">
+		<asociace>mp4, wmv, avi</asociace>
+	</nastaveni>
+</rozhrani-nas>
+
+<!-- Nastavení zvuku -->
+<zvuk-nas>
+	<zvuk>1</zvuk>
+	<vystupni-modul-zvuk>Automaticky</vystupni-modul-zvuk>
+	<nastaveni zkategorie="hlasitost a efekty">
+		<vzdy-hlasitost hzap="0" hform="procenta">100</vzdy-hlasitost>
+		<casove-roztazeni-zvuku>1</casove-roztazeni-zvuku>
+		<normalizace-hlasitosti hnorm="0" hnormform="decibely">2</normalizace-hlasitosti>
+		<prostorovy-efekt-sluchatek>0</prostorovy-efekt-sluchatek>
+	</nastaveni>
+	<nastaveni zkategorie="stopy">
+		<uprednostnovany-jazyk-z>Český</uprednostnovany-jazyk-z>
+	</nastaveni>
+</zvuk-nas>
+
+<!-- Nastavení videa -->
+<video-nas>
+	<video>1</video>
+	<nastaveni vkategorie="zobrazeni">
+		<cela-obrazovka>1</cela-obrazovka>
+		<hw-akcelerace>1</hw-akcelerace>
+		<vzdy-navrchu>0</vzdy-navrchu>
+		<vystupni-modul-video>Automaticky</vystupni-modul-video>
+	</nastaveni>
+	<nastaveni vkategorie="snímky">
+		<klavesova-zkratka szap="1">F10</klavesova-zkratka>
+		<adresar-snimku>/VLCSnaps</adresar-snimku>
+		<predpona-souboru>vlcsnap-</predpona-souboru>
+		<format>png</format>
+		<vice-monitoru>0</vice-monitoru>
+	</nastaveni>
+</video-nas>
+
+<!-- Nastavení titulek -->
+<titulky-nas>
+	<titulky>1</titulky>
+	<OSD>1</OSD>
+	<zobrazovat-nazev-media-OSD nazevzobr="1">Dole</zobrazovat-nazev-media-OSD>
+
+	<nastaveni tkategorie="jazyk">
+		<uprednostnovany-jazyk-t>Český</uprednostnovany-jazyk-t>
+	</nastaveni>
+	<nastaveni tkategorie="efekty">
+		<font-pisma>Arial</font-pisma>
+		<velikost-pisma>Normální</velikost-pisma>
+		<sirka-obrysu>Normální</sirka-obrysu>
+		<stin>1</stin>
+		<barva-textu>Bílá</barva-textu>
+		<barva-obrysu>Černá</barva-obrysu>
+	</nastaveni>
+</titulky-nas>
+
+</VLCMediaPlayer_konfigurace>

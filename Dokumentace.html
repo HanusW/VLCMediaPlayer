@@ -1,0 +1,431 @@
+<!DOCTYPE html> 
+<html lang="cs">
+  <head>
+  <!-- Odkaz na github: https://github.com/HanusW/VLCMediaPlayer -->
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="Author" content="Hanuš Weisl">
+  <link rel="shortcut icon" type="image/x-icon" href="ikona.ico" />
+  <title>VLCMediaPlayer - Dokumentace</title>     
+  </head>
+  <body>
+  	<section id="navigace-nadpis">
+  		<h1>VLCMediaPlayer konfigurace</h1>
+      <a href="https://github.com/HanusW/VLCMediaPlayer">Odkaz na GitHub repozitář</a>
+	    <nav>
+	      <h3>Navigace:</h3>
+	      <ul>
+	        <li><a href="#uvod">Úvod</a></li>
+	        <li><a href="#metodika">Metodika - Použité nástroje</a></li>
+	        <li><a href="#popis">Popis elementů a atributů</a><ul><li><a href="#elementy">tabulka elementů</a></li>
+                                                                <li><a href="#atributy">tabulka atributů</a></li></ul></li>
+	        <li><a href="#transf">Popis transformace</a></li>
+	        <li><a href="#zaver">Závěr</a></li>
+	      </ul>
+	      <hr /><br />
+	    </nav>
+    </section>
+    <main>
+      <section id="uvod">
+        <article>
+          <header>
+            <h2>Úvod</h2>
+          </header>          
+          <p>
+          Jako téma mého semestrálního projektu jsem si zvolil známý přehrávač &quot;<a href="http://www.videolan.org/vlc/index.cs.html">VLC Media Player</a>&quot;. Vzhledem k rozsahu práce jsem nepokryl veškeré nastavení programu, ale pouze některé nastavení některých sekcí. Omezení nastavení se může
+          od opravdového programu lišit.
+          </p> 
+        </article>
+      </section>
+      <section id="metodika">
+        <h2>Metodika</h2>
+        <article>
+          <header>
+            <h3>Využité programy</h3>
+          </header>         
+          <p>
+            Při tvorbě projektu jsem využil následující programy:
+          </p>
+            <ul> 
+            <li><a href="https://www.sublimetext.com/">Sublime Text</a></li> 
+            <li><a href="https://www.mozilla.org/cs/firefox/new/">Mozilla Firefox</a></li>
+            </ul>
+          
+        </article>
+        <article>
+          <header>
+            <h3>Využité webové stránky</h3>
+          </header>         
+          <p>
+            Při tvorbě projektu jsem využil následující webové stránky:
+          </p>
+            <ul>
+              <li><a href="https://validator.w3.org/">W3.org - Validace HTML</a></li>
+              <li><a href="http://www.freeformatter.com">Freeformatter.com - Validace XML/XSD + XML transformace</a></li>
+              <li><a href="http://www.google.com">Google.com - Vyhledávání informací</a></li>
+              <li><a href="http://www.stackoverflow.com">Stack Overflow - Informace vedoucí k opravě chyb</a></li>
+            </ul>
+          
+        </article>        
+      </section>
+      <section id="popis">
+        <h2>Popis elementů / atributů</h2>
+        <article>
+          <header>
+            <h3>Použité elementy</h3>
+          </header>          
+          <table border="1" id="elementy">
+            <tr>
+              <td style="background: #33FFCC;">Název elementu</td>
+              <td style="background: #33FFCC;">Popis elementu</td>
+              <td style="background: #33FFCC;">Schématické omezení elementu</td>
+            </tr>
+            <tr>                       
+              <td>rozhrani-nas</td>
+              <td>Obaluje nastavení rozhraní</td>
+              <td></td>
+            </tr>
+            <tr>                       
+              <td>nastaveni</td>
+              <td>Obaluje příslušná nastavení, podle atributu</td>
+              <td></td>
+            </tr>
+            <tr>                       
+              <td>jazyk</td>
+              <td>Určuje nastavení jazyku aplikace</td>
+              <td>String seznam: [Český, Anglický, Německý, Francouzský, Ruský]</td>
+            </tr>
+            <tr>                       
+              <td>vzhled</td>
+              <td>Určuje vzhled rozhraní programu</td>
+              <td>String [Základní] či cesta k souboru se vzhledem</td>
+            </tr>
+            <tr>                       
+              <td>fullscreen-ovladani</td>
+              <td>Určuje, zda při přechodu do módu celé obrazovky bude na spodní liště ovládání přehrávače</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>minimalni-rozhrani</td>
+              <td>Určuje, zda bude použita funkce minimalistického a jednoduchého rozhraní</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>velikost-roz-video</td>
+              <td>Určuje, zda se velikost rozhraní přizpůsobí velikosti videa (šírkou a výškou)</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>ikona-oznpanel</td>
+              <td>Určuje, zda bude v systémové části panelu zobrazena ikona přehrávače umožňující základní ovládání</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>pozastavit-minimalizace</td>
+              <td>Určuje, zda bude přehrávání média při minimalizaci přehrávače pozastaveno</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>zmena-media-oznameni</td>
+              <td>Určuje za jakých okolností se v systémové části panelu zobrazí informační bublina o názvu dalšího přehrávaného média</td>
+              <td>String seznam, [Nikdy, Minimalizace, Vždy]</td>
+            </tr>
+            <tr>                       
+              <td>pouze-jedna-instance</td>
+              <td>Určuje, zda bude program běžet pouze v jedné instanci, či pro každé médium vytvoří novou</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>pouze-jedna-instance-pruzkumnik</td>
+              <td>Určuje, zda bude program běžet pouze v jedné instanci pokud bylo médium spuštěno z okna průzkumníku windows</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>zobrazit-strom</td>
+              <td>Určuje, zda při zobrazení seznamu stop bude použito stromové schéma</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>pozastavit-posledni-snimek</td>
+              <td>Určuje, zda po dokončení přehrávání média bude zobrazen poslední snímek média, či jestli se zobrazí standartní ikona VLC</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>upozorneni-aktulizace</td>
+              <td>Určuje po kolika dnech/měsících (určeno atributem aktform) bude zobrazeno upozornění o nových aktulizacích programu</td>
+              <td>Integer</td>
+            </tr>
+            <tr>                       
+              <td>ulozit-nedavno-prehrane</td>
+              <td>Určuje, zda má program vést seznam nedávno přehraných médií</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>pokracovat-v-prehravani</td>
+              <td>Určuje, zda má program nabízet možnost pokračovat v čase kdy bylo přehrávání média naposledy ukončeno</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>povolit-metadata</td>
+              <td>Určuje, zda má přehrávač povoleno automaticky stahovat metadata přehrávaných médií</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>asociace</td>
+              <td>Určuje s jakými příponami souborů se má přehrávač spojit (tedy stát se výchozím programem pro spuštění souborů s danými příponami)</td>
+              <td>String</td>
+            </tr>
+            <tr>                       
+              <td>zvuk-nas</td>
+              <td>Obaluje nastavení zvuku</td>
+              <td></td>
+            </tr>
+            <tr>                       
+              <td>zvuk</td>
+              <td>Určuje, zda bude povolen zvuk při přehrávání médií</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>vystupni-modul-zvuk</td>
+              <td>Určuje, na jaký výstup bude posílán zvuk</td>
+              <td>String (seznam je načítán z počítače)</td>
+            </tr>
+            <tr>                       
+              <td>vzdy-hlasitost</td>
+              <td>Určuje zda, a na kolik procent/decibelů se bude vždy automaticky nastavovat hlasitost</td>
+              <td>Integer, 0 až 200</td>
+            </tr>
+            <tr>                       
+              <td>casove-roztazeni-zvuku</td>
+              <td>Určuje, zda se má přehrávač pokusit roztáhnout zvuk na délku celého média</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>normalizace-hlasitosti</td>
+              <td>Určuje zda, a o kolik procent/decibelů má aplikace nadsadit/podsadit zvuk u média</td>
+              <td>Integer, 0 až 200</td>
+            </tr>
+            <tr>                       
+              <td>prostorovy-efekt-sluchatek</td>
+              <td>Určuje, zda bude zapnuta podpora prostorového efektu u sluchátek</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>uprednostnovany-jazyk-z</td>
+              <td>Určuje upřednostňovaný jazyk zvuku</td>
+              <td>String seznam: [Český, Anglický, Německý, Francouzský, Ruský]</td>
+            </tr>
+            <tr>                       
+              <td>video-nas</td>
+              <td>Obaluje nastavení videa</td>
+              <td></td>
+            </tr>
+            <tr>                       
+              <td>video</td>
+              <td>Určuje, zda bude zapnuto přehrávání videa</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>cela-obrazovka</td>
+              <td>Určuje, zda bude video otevřeno přes celou obrazovku</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>hw-akcelerace</td>
+              <td>Určuje, zda bude použita hardwarová akcelerace, pokud je k dispozici</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>vzdy-navrchu</td>
+              <td>Určuje, zda má médium při přehrávání být vždy nad ostatními okny</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>vystupni-modul-video</td>
+              <td>Určuje na který výstup bude odesílán výstup videa</td>
+              <td>String (seznam je načítán z počítače)</td>
+            </tr>            
+            <tr>                       
+              <td>klavesova-zkratka</td>
+              <td>Určuje jakou klávesovou zkratkou bude pořízen snímek obrazu přehrávaného média</td>
+              <td>String</td>
+            </tr>
+            <tr>                       
+              <td>adresar-snimku</td>
+              <td>Určuje cestu k adresáři, kam program ukládá pořízené snímky obrazu (startující ve složce kde je spouštěcí soubor aplikace)</td>
+              <td>String</td>
+            </tr>
+            <tr>                       
+              <td>predpona-souboru</td>
+              <td>Určuje jaký text bude přidán na začátek názvu pořízeného snímku obrazu před číslo snímku</td>
+              <td>String</td>
+            </tr>
+            <tr>                       
+              <td>format</td>
+              <td>Určuje v jakém formátu budou ukládány pořízené snímky obrazu</td>
+              <td>String seznam: [png, jpg, gif]</td>
+            </tr>
+            <tr>                       
+              <td>vice-monitoru</td>
+              <td>Určuje, zda bude program podporovat režim přehrávání na jiný monitor než na kterém přehrávač běží</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>titulky-nas</td>
+              <td>Obaluje nastavení titulek</td>
+              <td></td>
+            </tr>
+            <tr>                       
+              <td>titulky</td>
+              <td>Určuje, zda budou titulky zapnuté</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>OSD</td>
+              <td>Určuje, zda bude použita funkce pro zobrazení titulek přes video (text s obrysem)</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>zobrazovat-nazev-media-OSD</td>
+              <td>Určuje, zda a kde po otevření média bude prvních pár sekund zobrazen název média</td>
+              <td>String seznam: [Dole, Nahoře, Uprostřed, Vlevo, Vpravo]</td>
+            </tr>
+            <tr>                       
+              <td>uprednostnovany-jazyk-t</td>
+              <td>Určuje upřednostňovaný jazyk titulek (pokud budou nahrány titulky s více lokalizacemi, bude defaultně použitá zvolená hodnota)</td>
+              <td>String seznam: [Český, Anglický, Německý, Francouzský, Ruský]</td>
+            </tr>
+            <tr>                       
+              <td>font-pisma</td>
+              <td>Určuje, jaký font bude použit pro zobrazení titulek (není li upraveno nastavením titulek samotných)</td>
+              <td>String</td>
+            </tr>
+            <tr>                       
+              <td>velikost-pisma</td>
+              <td>Určuje jakou velikost bude mít písmo titulek</td>
+              <td>String seznam: [Normální, Větší, Menší]</td>
+            </tr>
+            <tr>                       
+              <td>sirka-obrysu</td>
+              <td>Určuje šírku obrysu písma titulek</td>
+              <td>String seznam: [Normální, Tlustší, Tenčí, Bez obrysu]</td>
+            </tr>
+            <tr>                       
+              <td>stin</td>
+              <td>Určuje, zda bude mít font titulek stín</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>barva-textu</td>
+              <td>Určuje barvu textu titulek (pokud není individuálním nastavením titulek jinak)</td>
+              <td>String seznam: [Černá, Bílá, Zelená, Žlutá, Modrá]</td>
+            </tr>
+            <tr>                       
+              <td>barva-obrysu</td>
+              <td>Určuje barvu obrysu titulek</td>
+              <td>String seznam: [Černá, Bílá, Zelená, Žlutá, Modrá]</td>
+            </tr>                                                             
+          </table>
+          <h3>Použité atributy</h3>
+          <table border="1" id="atributy" title="Tabulka atributů">
+            <tr>
+              <td style="background: #33FFCC;">Název atributu</td>
+              <td style="background: #33FFCC;">Popis atributu</td>
+              <td style="background: #33FFCC;">Schématické omezení atributu</td>
+            </tr>
+            <tr>                       
+              <td>rkategorie</td>
+              <td>Určuje název kategorie nastavení rozhraní</td>
+              <td>String</td>
+            </tr>
+            <tr>                       
+              <td>aktzap</td>
+              <td>Určuje, zda bude program kontrolovat aktulizace</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>aktform</td>
+              <td>Určuje, v jakém formátu se uvádí doba, kdy budou zkontrolovány aktulizace</td>
+              <td>String, [dny, měsíce]</td>
+            </tr>  
+            <tr>                       
+              <td>zkategorie</td>
+              <td>Určuje název kategorie nastavení zvuku</td>
+              <td>String</td>
+            </tr>  
+            <tr>                       
+              <td>hzap</td>
+              <td>Určuje, zda bude zapnuta funkce pro nastavení stejné hlasitosti při každém spuštění přehrávače</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr> 
+            <tr>                       
+              <td>hzap</td>
+              <td>Určuje, zda bude zapnuta funkce pro nastavení stejné hlasitosti při každém spuštění přehrávače</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr> 
+            <tr>                       
+              <td>hform</td>
+              <td>Určuje, v jakém formátu se uvádí hlasitost, která bude nastavena při každém spuštění přehrávače</td>
+              <td>String, [procenta, decibely]</td>
+            </tr>
+            <tr>                       
+              <td>hnorm</td>
+              <td>Určuje, zda bude zapnuta funkce pro normalizaci zvuku</td>
+              <td>Integer [0, 1] &lt;0 = vyp, 1 zap &gt;</td>
+            </tr>
+            <tr>                       
+              <td>hnormform</td>
+              <td>Určuje, v jakém formátu se uvádí hlasitost pro normalizaci zvuku</td>
+              <td>String, [procenta, decibely]</td>
+            </tr>
+            <tr>                       
+              <td>vkategorie</td>
+              <td>Určuje název kategorie nastavení videa</td>
+              <td>String</td>
+            </tr>
+            <tr>                       
+              <td>szap</td>
+              <td>Určuje, zda je zapnuta funkce pro pořizování snímků z videa klávesovou zkratkou</td>
+              <td>String, [procenta, decibely]</td>
+            </tr> 
+            <tr>                       
+              <td>nazevobr</td>
+              <td>Určuje, zda se zobrazí název média při spuštení pomocí OCD textu</td>
+              <td>String, [procenta, decibely]</td>
+            </tr>
+            <tr>                       
+              <td>tkategorie</td>
+              <td>Určuje název kategorie titulky</td>
+              <td>String</td>
+            </tr>                         
+          </table>
+        </article>
+      </section>
+      <section id="transf">
+      <h2>transformace</h2>
+        <article>
+          <header>
+            <h3>Popis transformace</h3>
+          </header>
+          <p>
+          XML transformace spočívá ve výpisu z nastavení rozhraní, kde podmínka je že atribut &quot;rkategorie&quot; se rovná &quot;styl&quot;.
+          </p>
+        </article>
+      </section>
+      <section id="zaver">
+        <article>
+          <header>
+            <h2>Závěr</h2>
+          </header>
+          <p>
+          Práce mi pomohla se zorientovat v XML/XSD, o kterém jsem dříve slyšel jen teoreticky. Myslím že tato znalost mi v budoucnu pomůže.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer>
+    <hr />
+    <p><strong>Autor</strong>: Hanuš Weisl, xweih001 / Česká Zemědělská univerzita Praha, dne 22.4.2017
+    </p>
+    </footer>
+  </body>
+</html>
